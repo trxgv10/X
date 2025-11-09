@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <h2>FinancePro</h2>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="nav-link">Accounts</a>
+            <a href="#" class="nav-link">Trade</a>
+            <a href="#" class="nav-link">Research</a>
+            <a href="#" class="nav-link">Portfolio</a>
+        </div>
+        <div class="nav-user">
+            <span>Welcome, Investor</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="account-summary">
+                <h3>Account Summary</h3>
+                <div class="balance">
+                    <p>Total Balance</p>
+                    <h2>$125,430.75</h2>
+                </div>
+                <div class="account-details">
+                    <div class="account-item">
+                        <span>Cash & Cash Investments</span>
+                        <span>$15,230.75</span>
+                    </div>
+                    <div class="account-item">
+                        <span>Investment Portfolio</span>
+                        <span>$110,200.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <button class="action-btn" onclick="showTradeModal()">Trade Stocks</button>
+                <button class="action-btn" onclick="showTransferModal()">Transfer Funds</button>
+                <button class="action-btn" onclick="refreshData()">Refresh Data</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Investment Dashboard</h1>
+                <div class="market-status">
+                    <span id="marketStatus">Market Open</span>
+                    <span id="currentTime"></span>
+                </div>
+            </header>
+
+            <!-- Watchlist -->
+            <section class="watchlist">
+                <h3>Watchlist</h3>
+                <div class="table-container">
+                    <table id="watchlistTable">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Price</th>
+                                <th>Change</th>
+                                <th>Change %</th>
+                                <th>Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody id="watchlistBody">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Portfolio -->
+            <section class="portfolio">
+                <h3>Portfolio Holdings</h3>
+                <div class="table-container">
+                    <table id="portfolioTable">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Avg Cost</th>
+                                <th>Current Price</th>
+                                <th>Market Value</th>
+                                <th>Gain/Loss</th>
+                            </tr>
+                        </thead>
+                        <tbody id="portfolioBody">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Trading -->
+    <div id="tradeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTradeModal()">&times;</span>
+            <h3>Trade Stocks</h3>
+            <form id="tradeForm">
+                <div class="form-group">
+                    <label for="symbol">Symbol:</label>
+                    <input type="text" id="symbol" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" required>
+                </div>
+                <div class="form-group">
+                    <label for="action">Action:</label>
+                    <select id="action">
+                        <option value="buy">Buy</option>
+                        <option value="sell">Sell</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Execute Trade</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
